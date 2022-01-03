@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     var verses: [BibleVerse] = []
+    
     @State private var searchWord = "search word"
     
     var body: some View {
