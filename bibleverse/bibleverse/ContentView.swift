@@ -10,21 +10,43 @@ import SwiftUI
 struct ContentView: View {
     
     var verses: [BibleVerse] = []
+    @State private var searchWord = "search word"
     
     var body: some View {
-    List(verses) { item in
-        Image(systemName: "photo")
-        VStack(alignment: .leading) {
-            Text(item.title)
-                    .font(.headline)
-                    .foregroundColor(Color.gray)
-                   
-            Text(item.verse)
-                    .font(.subheadline)
-                    .foregroundColor(Color.gray)
+        
+        HStack {
+           
+            NavigationView {
+               
+                VStack {
+                    
+                    HStack {
+                        TextField("Search word", text: $searchWord)
+                            .padding(.leading, 20.0)
+                        Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
+                            print("test")
+                        }
+                        .padding(.trailing, 20.0)
+                    }
+                    
+                    List(verses) { item in
+                        Image(systemName: "photo")
+                        VStack(alignment: .leading) {
+                            Text(item.title)
+                                    .font(.headline)
+                                    .foregroundColor(Color.gray)
+                                   
+                            Text(item.verse)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color.gray)
+                                
+                        }
+                    }.navigationBarTitle(Text("Verses"))
+                }
                 
+            }
+           
         }
-    }
     }
 }
 
