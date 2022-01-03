@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BibleVerse: Identifiable {
+struct BibleVerse: Decodable {
     var id: String
     var title: String
     var verse: String    
@@ -20,5 +20,4 @@ let testData = [
     BibleVerse(id: "Zechariah 11:4", title: "Zechariah 11:4", verse: "Thus says Yahweh my God: “Shepherd the flock doomed to slaughter."),
     BibleVerse(id: "Numbers 29:5", title: "Numbers 29:5", verse: "with one male goat for a sin offering, to make atonement for you,")
 ]
-
 #endif

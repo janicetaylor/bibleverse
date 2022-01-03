@@ -15,6 +15,7 @@
 		11A047A62782B88D0098C1B0 /* bibleverseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A047A52782B88D0098C1B0 /* bibleverseUITests.swift */; };
 		11A047A82782B88D0098C1B0 /* bibleverseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A047A72782B88D0098C1B0 /* bibleverseUITestsLaunchTests.swift */; };
 		11A047B52782B90B0098C1B0 /* BibleVerse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A047B42782B90B0098C1B0 /* BibleVerse.swift */; };
+		11A047B82782C9860098C1B0 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A047B72782C9860098C1B0 /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		11A047A52782B88D0098C1B0 /* bibleverseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bibleverseUITests.swift; sourceTree = "<group>"; };
 		11A047A72782B88D0098C1B0 /* bibleverseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bibleverseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		11A047B42782B90B0098C1B0 /* BibleVerse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleVerse.swift; sourceTree = "<group>"; };
+		11A047B72782C9860098C1B0 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				11A0478A2782B88A0098C1B0 /* bibleverseApp.swift */,
 				11A0478C2782B88A0098C1B0 /* ContentView.swift */,
 				11A047B42782B90B0098C1B0 /* BibleVerse.swift */,
+				11A047B72782C9860098C1B0 /* DataSource.swift */,
 				11A0478E2782B88D0098C1B0 /* Assets.xcassets */,
 				11A047902782B88D0098C1B0 /* Preview Content */,
 			);
@@ -262,6 +265,7 @@
 			files = (
 				11A0478D2782B88A0098C1B0 /* ContentView.swift in Sources */,
 				11A047B52782B90B0098C1B0 /* BibleVerse.swift in Sources */,
+				11A047B82782C9860098C1B0 /* DataSource.swift in Sources */,
 				11A0478B2782B88A0098C1B0 /* bibleverseApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
