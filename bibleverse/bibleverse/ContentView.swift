@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    // http://api.biblia.com/v1/bible/search/LEB.txt?query=bread&mode=verse&start=0&limit=20&key=fd37d8f28e95d3be8cb4fbc37e15e18e
+    
     var verses: [BibleVerse] = []
     
     @State private var searchWord = "search word"
@@ -53,6 +55,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(verses: testData)
+        Group {
+            ContentView(verses: testData)
+        }
     }
 }
