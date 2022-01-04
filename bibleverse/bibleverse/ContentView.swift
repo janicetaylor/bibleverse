@@ -24,16 +24,15 @@ struct ContentView: View {
                 VStack {
                     
                     HStack {
-                        TextField("Search word", text: $searchWord)
+                        TextField("Search", text: $searchWord)
                             .padding(.leading, 20.0)
                         Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
                             print("test")
                         }
                         .padding(.trailing, 20.0)
                     }
-                                        
-                    List(verses) { item in
-                        
+                            
+                    List(verses, id: \.id) { item in
                         Image(systemName: "photo")
                         VStack(alignment: .leading) {
                             Text(item.title)
