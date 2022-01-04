@@ -17,13 +17,11 @@ struct ContentView: View {
     @State var searchWord = "goat"
     
     func loadData(url:URL) async {
-        
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
                 if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
                     verses = decodedResponse.results
                 }
-            // more code to come
         } catch {
             print("Invalid data")
         }
