@@ -15,8 +15,7 @@ class DataSource: ObservableObject {
     var apikey = "c2d68419edd19a8fc2207c9976c46896"
     
     @State var searchWord = "goat"
-    @Published var items = [Result]()
-    @Published var results = []
+    @State var items = [Result]()
 
     func loadData() async {
         guard let url = URL(string: "http://api.biblia.com/v1/bible/search/LEB.txt?query=\(searchWord)&mode=verse&start=0&limit=20&key=\(apikey)") else {
@@ -39,25 +38,26 @@ class DataSource: ObservableObject {
                // print(jsonString)
             }
             
-            do {
-                let result = try JSONDecoder().decode(Response.self, from: data)
-                print(result)
-                print("----")
-                // print(result.results)
-                print("----")
-                print(result.results.count)
-                print("----")
-                print(result.results[0].title)
-                self.items = result.results
-                self.results = result.results
-                } catch let error {
-                    print(error.localizedDescription)
-            }
+//            do {
+//                let result = try JSONDecoder().decode(Response.self, from: data)
+//                print(result)
+//                print("----")
+//                // print(result.results)
+//                print("----")
+//                print(result.results.count)
+//                print("----")
+//                print(result.results[0].title)
+//                self.items = result.results
+//                } catch let error {
+//                    print(error.localizedDescription)
+//            }
+            
+            
+
             
           }.resume()
             
     }
-    
     
     init() {
     }

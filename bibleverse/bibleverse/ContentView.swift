@@ -10,7 +10,24 @@ import SwiftUI
 struct ContentView: View {
 
     @ObservedObject var datasource = DataSource()
-    var verses: [Result] = DataSource().items
+    // var verses = testData
+    @State private var verses = [Result]()
+    
+    var apikey = "c2d68419edd19a8fc2207c9976c46896"
+    @State var searchWord = "goat"
+    
+    func loadData(url:URL) async {
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+                if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
+                    verses = decodedResponse.results
+                }
+            // more code to come
+        } catch {
+            print("Invalid data")
+        }
+    }
     
     var body: some View {
         HStack {
@@ -35,9 +52,8 @@ struct ContentView: View {
                         }
                     }.navigationBarTitle(Text("Verses"))
                         .task {
-                            await DataSource().loadData()
-                            print(DataSource().items.count)
-                            print(DataSource().results.count)
+                            let urlToLoad = URL(string: "http://api.biblia.com/v1/bible/search/LEB.txt?query=\(searchWord)&mode=verse&start=0&limit=20&key=\(apikey)")
+                            await loadData(url: urlToLoad!)
                         }
                 }
                 
@@ -50,7 +66,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView(verses: testData)
+          //  ContentView(verses: testData)
         }
     }
 }

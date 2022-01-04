@@ -16,12 +16,6 @@ struct Result: Codable {
     var preview: String
 }
 
-struct BibleVerse: Decodable {
-    var id: String
-    var title: String
-    var verse: String    
-}
-
 #if DEBUG
 let testData = [
     Result(title: "Numbers 7:16", preview: "one he-goat as a sin offering;"),
