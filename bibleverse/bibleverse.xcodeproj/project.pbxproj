@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1162C1592784E19D00A1EC4A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162C1582784E19D00A1EC4A /* MainView.swift */; };
+		1162C15B2784EE4800A1EC4A /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162C15A2784EE4800A1EC4A /* CustomTabView.swift */; };
+		1162C15D2784EF7100A1EC4A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162C15C2784EF7100A1EC4A /* Home.swift */; };
+		1162C15F2784FD5A00A1EC4A /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1162C15E2784FD5A00A1EC4A /* Search.swift */; };
 		11A0478B2782B88A0098C1B0 /* bibleverseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A0478A2782B88A0098C1B0 /* bibleverseApp.swift */; };
 		11A0478D2782B88A0098C1B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A0478C2782B88A0098C1B0 /* ContentView.swift */; };
 		11A0478F2782B88D0098C1B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A0478E2782B88D0098C1B0 /* Assets.xcassets */; };
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1162C1582784E19D00A1EC4A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1162C15A2784EE4800A1EC4A /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		1162C15C2784EF7100A1EC4A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		1162C15E2784FD5A00A1EC4A /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		11A047872782B88A0098C1B0 /* bibleverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bibleverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A0478A2782B88A0098C1B0 /* bibleverseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bibleverseApp.swift; sourceTree = "<group>"; };
 		11A0478C2782B88A0098C1B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +84,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1162C1562784E16100A1EC4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				11A047B42782B90B0098C1B0 /* Result.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1162C1572784E16E00A1EC4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				11A0478C2782B88A0098C1B0 /* ContentView.swift */,
+				1162C1582784E19D00A1EC4A /* MainView.swift */,
+				11A047BC2784BD9D0098C1B0 /* MenuView.swift */,
+				1162C15A2784EE4800A1EC4A /* CustomTabView.swift */,
+				1162C15C2784EF7100A1EC4A /* Home.swift */,
+				1162C15E2784FD5A00A1EC4A /* Search.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		11A0477E2782B88A0098C1B0 = {
 			isa = PBXGroup;
 			children = (
@@ -99,11 +128,10 @@
 		11A047892782B88A0098C1B0 /* bibleverse */ = {
 			isa = PBXGroup;
 			children = (
+				1162C1572784E16E00A1EC4A /* Views */,
+				1162C1562784E16100A1EC4A /* Model */,
 				11A047B92783F3620098C1B0 /* Info.plist */,
 				11A0478A2782B88A0098C1B0 /* bibleverseApp.swift */,
-				11A0478C2782B88A0098C1B0 /* ContentView.swift */,
-				11A047BC2784BD9D0098C1B0 /* MenuView.swift */,
-				11A047B42782B90B0098C1B0 /* Result.swift */,
 				11A0478E2782B88D0098C1B0 /* Assets.xcassets */,
 				11A047902782B88D0098C1B0 /* Preview Content */,
 			);
@@ -268,7 +296,11 @@
 				11A0478D2782B88A0098C1B0 /* ContentView.swift in Sources */,
 				11A047BD2784BD9D0098C1B0 /* MenuView.swift in Sources */,
 				11A047B52782B90B0098C1B0 /* Result.swift in Sources */,
+				1162C15B2784EE4800A1EC4A /* CustomTabView.swift in Sources */,
+				1162C1592784E19D00A1EC4A /* MainView.swift in Sources */,
+				1162C15F2784FD5A00A1EC4A /* Search.swift in Sources */,
 				11A0478B2782B88A0098C1B0 /* bibleverseApp.swift in Sources */,
+				1162C15D2784EF7100A1EC4A /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
