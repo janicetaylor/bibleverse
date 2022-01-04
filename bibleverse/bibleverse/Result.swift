@@ -1,6 +1,6 @@
 //
-//  BibleVerse.swift
-//  dorothyparker
+//  Result.swift
+//  bibleverse
 //
 //  Created by Janice on 1/2/22.
 //
@@ -14,6 +14,15 @@ struct Response: Codable {
 struct Result: Codable {
     var title: String
     var preview: String
+}
+
+// random verse 
+// https://api.biblia.com/v1/bible/content/LEB.html?passage=Lamentations3.16&key=fd37d8f28e95d3be8cb4fbc37e15e18e
+
+struct Verse: Codable {
+    var book: String
+    var chapter: String
+    var verse: String
 }
 
 #if DEBUG
