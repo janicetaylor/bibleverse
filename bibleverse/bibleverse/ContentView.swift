@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
 
-    // var verses = testData
     @State private var verses = [Result]()
     
     var apikey = "c2d68419edd19a8fc2207c9976c46896"
@@ -33,12 +32,8 @@ struct ContentView: View {
                     HStack {
                         TextField("Search", text: $searchWord)
                         Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
-                            print("button press")
-                            print(searchWord)
-                            async {
+                            Task {
                                 let urlToLoad = URL(string: "http://api.biblia.com/v1/bible/search/LEB.txt?query=\(searchWord)&mode=verse&start=0&limit=20&key=\(apikey)")
-                                
-                                print(urlToLoad)
                                 await loadData(url: urlToLoad!)
                             }
                         }
@@ -70,7 +65,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-          //  ContentView(verses: testData)
+         // ContentView(verses: testData)
         }
     }
 }
