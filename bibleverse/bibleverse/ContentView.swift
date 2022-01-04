@@ -9,12 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @ObservedObject var datasource = DataSource()
     // var verses = testData
     @State private var verses = [Result]()
     
     var apikey = "c2d68419edd19a8fc2207c9976c46896"
-    @State var searchWord = "goat"
+    @State var searchWord = ""
     
     func loadData(url:URL) async {
         do {
@@ -32,9 +31,16 @@ struct ContentView: View {
             NavigationView {
                 VStack {
                     HStack {
-                        TextField("Search", text: $datasource.searchWord)
+                        TextField("Search", text: $searchWord)
                         Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
                             print("button press")
+                            print(searchWord)
+                            async {
+                                let urlToLoad = URL(string: "http://api.biblia.com/v1/bible/search/LEB.txt?query=\(searchWord)&mode=verse&start=0&limit=20&key=\(apikey)")
+                                
+                                print(urlToLoad)
+                                await loadData(url: urlToLoad!)
+                            }
                         }
                     }
                             
