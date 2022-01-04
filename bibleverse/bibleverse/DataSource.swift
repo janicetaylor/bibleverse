@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // http://api.biblia.com/v1/bible/search/LEB.txt?query=bread&mode=verse&start=0&limit=20&key=fd37d8f28e95d3be8cb4fbc37e15e18e
 
@@ -13,27 +14,45 @@ class DataSource: ObservableObject {
     
     var apikey = "c2d68419edd19a8fc2207c9976c46896"
     
-    var searchterm = "goat"
+    @State var searchWord = "goat"
     @Published var items = [BibleVerse]()
+    @State private var results = [Result]()
+
+    func loadData() async {
+        guard let url = URL(string: "http://api.biblia.com/v1/bible/search/LEB.txt?query=\(searchWord)&mode=verse&start=0&limit=20&key=\(apikey)") else {
+            print("Invalid URL")
+            return
+        }
+        print(url)
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            print("Task completed")
+
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription)
+                return
+            }
+            
+            print(data)
+                       
+            if let jsonString = String(data: data, encoding: .utf8) {
+               // print(jsonString)
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(Response.self, from: data)
+                print(results)
+                self.results = results
+                } catch let error {
+                    print(error.localizedDescription)
+            }
+          }.resume()
+            
+    }
+    
     
     init() {
-        let url = URL(string: "http://api.biblia.com/v1/bible/search/LEB.txt?query=\(searchterm)&mode=verse&start=0&limit=20&key=\(apikey)")!
         
-        URLSession.shared.dataTask(with: url) {(data, response, error) in
-                    do {
-                        if let itemsData = data {
-                            let decodedData = try JSONDecoder().decode([BibleVerse].self, from: itemsData)
-                            DispatchQueue.main.async {
-                                self.items = decodedData
-                            }
-                        } else {
-                            print("No data")
-                        }
-                    } catch {
-                        print("Error")
-                    }
-                }.resume()
-    
     }
     
 }

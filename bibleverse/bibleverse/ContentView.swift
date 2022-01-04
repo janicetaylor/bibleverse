@@ -9,42 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
 
-    var verses: [BibleVerse] = []
+    var verses: [BibleVerse] = [BibleVerse]()
     
-    @ObservedObject var fetchData = DataSource()
-
-    @State private var searchWord = "search word"
+    @ObservedObject var datasource = DataSource()
     
     var body: some View {
-        
         HStack {
-           
             NavigationView {
-               
                 VStack {
-                    
                     HStack {
-                        TextField("Search", text: $searchWord)
-                            .padding(.leading, 20.0)
+                        TextField("Search", text: $datasource.searchWord)
                         Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
                             print("test")
+                            print($datasource.items.count)
                         }
-                        .padding(.trailing, 20.0)
                     }
                             
                     List(verses, id: \.id) { item in
-                        Image(systemName: "photo")
                         VStack(alignment: .leading) {
                             Text(item.title)
-                                    .font(.headline)
-                                    .foregroundColor(Color.gray)
-                                   
+                                .font(.headline)
+                                .foregroundColor(Color.gray)
+                                       
                             Text(item.verse)
-                                    .font(.subheadline)
-                                    .foregroundColor(Color.gray)
-                                
+                                .font(.subheadline)
+                                .foregroundColor(Color.gray)
                         }
                     }.navigationBarTitle(Text("Verses"))
+                        .task {
+                            await DataSource().loadData()
+                        }
                 }
                 
             }

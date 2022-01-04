@@ -7,6 +7,15 @@
 
 import Foundation
 
+struct Response: Codable {
+    var results: [Result]
+}
+
+struct Result: Codable {
+    var title: String
+    var preview: String
+}
+
 struct BibleVerse: Decodable {
     var id: String
     var title: String

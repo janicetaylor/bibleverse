@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,6 +48,7 @@
 		11A047A72782B88D0098C1B0 /* bibleverseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bibleverseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		11A047B42782B90B0098C1B0 /* BibleVerse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleVerse.swift; sourceTree = "<group>"; };
 		11A047B72782C9860098C1B0 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		11A047B92783F3620098C1B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +99,7 @@
 		11A047892782B88A0098C1B0 /* bibleverse */ = {
 			isa = PBXGroup;
 			children = (
+				11A047B92783F3620098C1B0 /* Info.plist */,
 				11A0478A2782B88A0098C1B0 /* bibleverseApp.swift */,
 				11A0478C2782B88A0098C1B0 /* ContentView.swift */,
 				11A047B42782B90B0098C1B0 /* BibleVerse.swift */,
@@ -213,7 +215,7 @@
 				};
 			};
 			buildConfigurationList = 11A047822782B88A0098C1B0 /* Build configuration list for PBXProject "bibleverse" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -430,6 +432,7 @@
 				DEVELOPMENT_TEAM = U9VFYB8Z4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = bibleverse/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -460,6 +463,7 @@
 				DEVELOPMENT_TEAM = U9VFYB8Z4V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = bibleverse/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
