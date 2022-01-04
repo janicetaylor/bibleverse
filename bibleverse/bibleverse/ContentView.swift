@@ -31,13 +31,14 @@ struct ContentView: View {
                 VStack {
                     HStack {
                         TextField("Search", text: $searchWord)
-                        Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
+                        Button("Search") {
                             Task {
                                 let urlToLoad = URL(string: "http://api.biblia.com/v1/bible/search/LEB.txt?query=\(searchWord)&mode=verse&start=0&limit=20&key=\(apikey)")
                                 await loadData(url: urlToLoad!)
                             }
                         }
                     }
+                    .padding(.horizontal, 20.0)
                             
                     List(verses, id: \.title) { item in
                         VStack(alignment: .leading) {
