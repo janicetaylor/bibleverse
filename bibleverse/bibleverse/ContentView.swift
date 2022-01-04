@@ -9,9 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
 
-    var verses: [BibleVerse] = [BibleVerse]()
-    
     @ObservedObject var datasource = DataSource()
+    var verses: [Result] = DataSource().items
     
     var body: some View {
         HStack {
@@ -20,24 +19,25 @@ struct ContentView: View {
                     HStack {
                         TextField("Search", text: $datasource.searchWord)
                         Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
-                            print("test")
-                            print($datasource.items.count)
+                            print("button press")
                         }
                     }
                             
-                    List(verses, id: \.id) { item in
+                    List(verses, id: \.title) { item in
                         VStack(alignment: .leading) {
                             Text(item.title)
                                 .font(.headline)
                                 .foregroundColor(Color.gray)
                                        
-                            Text(item.verse)
+                            Text(item.preview)
                                 .font(.subheadline)
                                 .foregroundColor(Color.gray)
                         }
                     }.navigationBarTitle(Text("Verses"))
                         .task {
                             await DataSource().loadData()
+                            print(DataSource().items.count)
+                            print(DataSource().results.count)
                         }
                 }
                 
