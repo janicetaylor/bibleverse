@@ -52,7 +52,7 @@ struct CustomTabView: View {
                         .tag("Home")
                     Bible()
                         .tag("Read")
-                    Text("Topics")
+                    Topics() 
                         .tag("Topics")
                     Search()
                         .tag("Search")

@@ -28,7 +28,7 @@ struct MenuView: View {
                 VStack(alignment: .leading, spacing: 25) {
                     CustomButton(icon: "sun.min", title: "Daily")
                     CustomButton(icon: "book", title: "Read")
-                    CustomButton(icon: "moon", title: "Topics")
+                    CustomButton(icon: "theatermasks", title: "Topics")
                     CustomButton(icon: "magnifyingglass", title: "Search")
                     Spacer()
                     CustomButton(icon: "rectangle.portrait.and.arrow.right", title: "Logout")

@@ -12,7 +12,7 @@ struct Home: View {
     @State var randomVerse = [RandomResult]()
     
     var userData = UserData()
-    var randomVerseUrl = "https://labs.bible.org/api/?passage=random&type=json"
+    var randomVerseUrl = "https://labs.bible.org/api/?passage=votd&type=json"
     let userDefaultsVerseKey = "randomverse"
     
     func updateViewIfToday() async {
