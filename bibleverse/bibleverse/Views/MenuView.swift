@@ -14,19 +14,24 @@ struct MenuView: View {
     
     var body: some View {
         VStack {
+            
+//            HStack() {
+//                Image(systemName: "person")
+//                Text("Profile Name")
+//                    .font(.title3.bold())
+//                    .foregroundColor(.white)
+//            }
+//            .padding()
+//            .frame(maxWidth: .infinity,alignment: .leading)
+            
             ScrollView(getRect().height < 750 ? .vertical : .init(), showsIndicators: false, content: {
                 VStack(alignment: .leading, spacing: 25) {
-                    CustomButton(icon: "sun.min", title: "Random")
+                    CustomButton(icon: "sun.min", title: "Verse of the Day")
                     CustomButton(icon: "moon", title: "Topics")
                     CustomButton(icon: "magnifyingglass", title: "Search")
-                    CustomButton(icon: "safari.fill", title: "Discover")
-                    CustomButton(icon: "person.fill", title: "Profile")
-                    CustomButton(icon: "gearshape.fill", title: "Setting")
-                    Spacer()
-                    CustomButton(icon: "rectangle.portrait.and.arrow.right", title: "Logout")
                 }
                 .padding()
-                .padding(.top,0)
+                .padding(.top,45)
             })
             
             // max width of screen width
@@ -35,6 +40,7 @@ struct MenuView: View {
         }
         .padding(.leading,10)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+
     }
     
     @ViewBuilder
@@ -55,7 +61,7 @@ struct MenuView: View {
                 Image(systemName: icon)
                     .font(.title3)
                     .frame(width: currentTab == title ? 48 : nil, height: 48)
-                    .foregroundColor(.purple)
+                    .foregroundColor(currentTab == title ? Color("Purple") : (title == "Logout" ? Color("Orange") : .white))
                     .background(
                         ZStack{
                             if currentTab == title {

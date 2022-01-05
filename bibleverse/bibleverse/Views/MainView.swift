@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State var currentTab: String = "Home"
+    @State var currentTab: String = ""
     @State var showMenu: Bool = false
     
     init(){

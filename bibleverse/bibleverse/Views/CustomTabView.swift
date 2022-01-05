@@ -33,12 +33,13 @@ struct CustomTabView: View {
                 
                 
                 } // close header view HStack
+                .background(Color.black)
             
                 // page title
                 .overlay(
-                    Text(currentTab)
+                    Text("")
                         .font(.title2.bold())
-                        .foregroundColor(.red)
+                        .foregroundColor(.gray)
                         .opacity(showMenu ? 0 : 1)
                 )
                 .padding([.horizontal,.top])
@@ -49,12 +50,12 @@ struct CustomTabView: View {
                     // custom tab view here
                     Home()
                         .tag("Home")
+                    Text("Topics")
+                        .tag("Topics")
                     Search()
                         .tag("Search")
-                    Text("Topics 3")
-                        .tag("3")
-                    Text("Search 4")
-                        .tag("4")
+                    Text("Logout")
+                        .tag("Logout")
                 }
                 // disable actions when menu is visible
                 .disabled(showMenu)
@@ -73,7 +74,7 @@ struct CustomTabView: View {
                     .opacity(showMenu ? 1 : 0)
                     .padding()
                     .padding(.top)
-                    ,alignment:.topLeading
+                    ,alignment: .topLeading
                 )
                 .background(Color.black)
             }

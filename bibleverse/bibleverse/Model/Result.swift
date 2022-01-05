@@ -16,13 +16,15 @@ struct Result: Codable {
     var preview: String
 }
 
-// random verse 
-// https://api.biblia.com/v1/bible/content/LEB.html?passage=Lamentations3.16&key=fd37d8f28e95d3be8cb4fbc37e15e18e
+struct RandomResponse: Codable {
+    var results: [RandomResult]
+}
 
-struct Verse: Codable {
-    var book: String
+struct RandomResult: Codable {
+    var bookname: String
     var chapter: String
     var verse: String
+    var text: String
 }
 
 #if DEBUG
@@ -32,4 +34,9 @@ let testData = [
     Result(title: "Zechariah 11:4", preview: "Thus says Yahweh my God: “Shepherd the flock doomed to slaughter."),
     Result(title: "Numbers 29:5", preview: "with one male goat for a sin offering, to make atonement for you,")
 ]
+
+let randomTestData = [
+    RandomResult(bookname: "Deuteronomy", chapter: "13", verse: "14", text: "with the harvest produced by the daylight and by the moonlight;")
+]
+
 #endif
