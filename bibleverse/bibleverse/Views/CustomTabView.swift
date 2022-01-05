@@ -78,6 +78,7 @@ struct CustomTabView: View {
                 )
                 .background(Color.black)
             }
+            .background(Color.black)
           
         }
     } 

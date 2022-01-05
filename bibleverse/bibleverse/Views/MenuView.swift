@@ -40,7 +40,7 @@ struct MenuView: View {
         }
         .padding(.leading,10)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-
+        .background(Color("MenuBackground"))
     }
     
     @ViewBuilder
@@ -55,40 +55,41 @@ struct MenuView: View {
                     currentTab = title
                 }
             }
-            
-        } label: {
+        }
+        label: {
             HStack(spacing: 10) {
                 Image(systemName: icon)
                     .font(.title3)
                     .frame(width: currentTab == title ? 48 : nil, height: 48)
-                    .foregroundColor(currentTab == title ? Color("Purple") : (title == "Logout" ? Color("Orange") : .white))
+                    .foregroundColor(currentTab == title ? Color("MenuHighlight") : (title == "Logout" ? Color.white : Color.gray))
                     .background(
                         ZStack{
                             if currentTab == title {
                                 Color.white
-                                    .clipShape(Circle())
-                                    .matchedGeometryEffect(id: "tabcircle", in: animation)
+                                .clipShape(Circle())
+                                .matchedGeometryEffect(id: "tabcircle", in: animation)
                             }
                         }
                     )
                 Text(title)
                     .font(.callout)
                     .fontWeight(.semibold)
-                    .foregroundColor(title == "Logout" ? Color("Orange") : .white)
+                    .foregroundColor(title == "Logout" ? Color.gray : Color.white)
                     
             }
-            .padding(.trailing, 10)
-            .background(
-                ZStack{
-                    if currentTab == title{
-                        Color("Purple")
-                            .clipShape(Capsule())
-                            .matchedGeometryEffect(id: "tabcapsule", in: animation)
-                    }
-                }
-            )
+            .padding(.trailing,18)
         }
-        .offset(x: currentTab == title ? 15 : 0)
+        .background(
+            ZStack{
+                if currentTab == title{
+                    Color("MenuHighlight")
+                        .clipShape(Capsule())
+                        .matchedGeometryEffect(id: "tabcapsule", in: animation)
+                        
+                }
+            }
+        )
+        .offset(x: currentTab == title ? 10 : 0)
     }
 }
 

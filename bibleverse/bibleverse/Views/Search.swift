@@ -39,20 +39,19 @@ struct Search: View {
                                 let urlToLoad = URL(string: "http://api.biblia.com/v1/bible/search/LEB.txt?query=\(searchWord)&mode=verse&start=0&limit=20&key=\(apikey)")
                                 await loadData(url: urlToLoad!)
                             }
-                        }
+                        }.foregroundColor(Color.white)
                     }
                     .padding(.horizontal, 20.0)
 
                     List(verses, id: \.title) { item in
                         VStack(alignment: .leading) {
-                            Text(item.title)
-                                .font(.headline)
-                                .foregroundColor(Color.gray)
-
                             Text(item.preview)
-                                .font(.subheadline)
+                                .font(.body)
+                                .foregroundColor(Color.white)
+                            Text(item.title)
+                                .font(.footnote)
                                 .foregroundColor(Color.gray)
-                        }
+                        }.padding()
                     }.navigationBarTitle(Text("Verses"))
                         .task {
                             let urlToLoad = URL(string: "http://api.biblia.com/v1/bible/search/LEB.txt?query=\(defaultSearch)&mode=verse&start=0&limit=20&key=\(apikey)")
