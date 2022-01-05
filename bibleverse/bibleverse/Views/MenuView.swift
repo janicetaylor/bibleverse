@@ -15,20 +15,23 @@ struct MenuView: View {
     var body: some View {
         VStack {
             
-//            HStack() {
-//                Image(systemName: "person")
-//                Text("Profile Name")
-//                    .font(.title3.bold())
-//                    .foregroundColor(.white)
-//            }
-//            .padding()
-//            .frame(maxWidth: .infinity,alignment: .leading)
+            HStack() {
+                Image(systemName: "person")
+                Text("Profile Name")
+                    .font(.title3.bold())
+                    .foregroundColor(.white)
+            }
+            .padding()
+            .frame(maxWidth: .infinity,alignment: .leading)
             
             ScrollView(getRect().height < 750 ? .vertical : .init(), showsIndicators: false, content: {
                 VStack(alignment: .leading, spacing: 25) {
-                    CustomButton(icon: "sun.min", title: "Verse of the Day")
+                    CustomButton(icon: "sun.min", title: "Daily")
+                    CustomButton(icon: "book", title: "Read")
                     CustomButton(icon: "moon", title: "Topics")
                     CustomButton(icon: "magnifyingglass", title: "Search")
+                    Spacer()
+                    CustomButton(icon: "rectangle.portrait.and.arrow.right", title: "Logout")
                 }
                 .padding()
                 .padding(.top,45)
@@ -74,21 +77,21 @@ struct MenuView: View {
                 Text(title)
                     .font(.callout)
                     .fontWeight(.semibold)
+                    .foregroundColor(currentTab == title ? Color.white : Color.gray)
                     .foregroundColor(title == "Logout" ? Color.gray : Color.white)
                     
             }
             .padding(.trailing,18)
+//            .background(
+//                ZStack{
+//                    if currentTab == title {
+//                        Color("MenuHighlight")
+//                        .clipShape(Capsule())
+//                        .matchedGeometryEffect(id: "tabcapsule", in: animation)
+//                    }
+//                }
+//            )
         }
-        .background(
-            ZStack{
-                if currentTab == title{
-                    Color("MenuHighlight")
-                        .clipShape(Capsule())
-                        .matchedGeometryEffect(id: "tabcapsule", in: animation)
-                        
-                }
-            }
-        )
         .offset(x: currentTab == title ? 10 : 0)
     }
 }

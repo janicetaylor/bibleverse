@@ -39,7 +39,8 @@ struct Search: View {
                                 let urlToLoad = URL(string: "http://api.biblia.com/v1/bible/search/LEB.txt?query=\(searchWord)&mode=verse&start=0&limit=20&key=\(apikey)")
                                 await loadData(url: urlToLoad!)
                             }
-                        }.foregroundColor(Color.white)
+                        }
+                        .foregroundColor(Color.white)
                     }
                     .padding(.horizontal, 20.0)
 
@@ -48,9 +49,12 @@ struct Search: View {
                             Text(item.preview)
                                 .font(.body)
                                 .foregroundColor(Color.white)
+                                .lineSpacing(10.0)
                             Text(item.title)
                                 .font(.footnote)
                                 .foregroundColor(Color.gray)
+                                .lineSpacing(10.0)
+                                .padding(.top, 10)
                         }.padding()
                     }.navigationBarTitle(Text("Verses"))
                         .task {

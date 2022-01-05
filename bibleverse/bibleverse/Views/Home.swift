@@ -10,9 +10,9 @@ import SwiftUI
 struct Home: View {
     
     @State var randomVerse = [RandomResult]()
-    var randomVerseUrl = "https://labs.bible.org/api/?passage=random&type=json"
     
-    let defaultVerse = [RandomResult(bookname: "Deuteronomy", chapter: "13", verse: "14", text: "with the harvest produced by the daylight and by the moonlight;")]
+    var userData = UserData()
+    var randomVerseUrl = "https://labs.bible.org/api/?passage=random&type=json"
     let userDefaultsVerseKey = "randomverse"
     
     func updateViewIfToday() async {
@@ -38,7 +38,7 @@ struct Home: View {
                     return
                 }
                 else {
-                    randomVerse = getVerse()
+                    randomVerse = userData.getVerse()
                 }
             }
         }
@@ -55,44 +55,14 @@ struct Home: View {
                     randomVerse = decodedResponse
                     
                     let verseToSave = [RandomResult(bookname: decodedResponse[0].bookname, chapter: decodedResponse[0].chapter, verse: decodedResponse[0].verse, text: decodedResponse[0].text)]
-                   
-                    saveVerse(verse: verseToSave)
+                    userData.saveVerse(verse: verseToSave)
                 }
         } catch {
             print("Invalid verse data")
         }
     }
     
-    func saveVerse(verse:[RandomResult]) {
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(verse)
-            UserDefaults.standard.set(data, forKey: userDefaultsVerseKey)
-            UserDefaults.standard.synchronize()
-            
-            let verse = getVerse()
-        }
-        catch {
-            print("unable to encode verse (\(error.localizedDescription))")
-        }
-    }
-    
-    func getVerse() -> [RandomResult] {
-        var verse = defaultVerse
-        
-        if let data = UserDefaults.standard.data(forKey: userDefaultsVerseKey) {
-            do {
-                let decoder = JSONDecoder()
-                let verseDecoder = try decoder.decode([RandomResult].self, from: data)
-                verse = verseDecoder
-            }
-            catch {
-                print("unable to decode verse (\(error.localizedDescription))")
-            }
-        }
-        
-        return verse
-    }
+
     
     var body: some View {
         
@@ -108,6 +78,7 @@ struct Home: View {
                                 .foregroundColor(.gray)
                         }
                 }
+                .padding()
             }
         }
         .task {
