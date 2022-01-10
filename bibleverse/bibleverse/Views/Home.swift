@@ -51,7 +51,6 @@ struct Home: View {
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             if let decodedResponse = try? JSONDecoder().decode([RandomResult].self, from: data) {
-                    print(decodedResponse)
                     randomVerse = decodedResponse
                     
                     let verseToSave = [RandomResult(bookname: decodedResponse[0].bookname, chapter: decodedResponse[0].chapter, verse: decodedResponse[0].verse, text: decodedResponse[0].text)]
@@ -61,8 +60,6 @@ struct Home: View {
             print("Invalid verse data")
         }
     }
-    
-
     
     var body: some View {
         

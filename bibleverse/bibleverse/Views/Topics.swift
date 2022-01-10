@@ -12,6 +12,7 @@ struct Topics: View {
     let themes = ["love", "compassion", "joy", "delight", "anger", "wrath", "fear", "terror", "depression", "guilt", "pride", "sin"]
     
     var body: some View {
+        
         List(themes, id: \.self) { item in
             VStack {
                 HStack {

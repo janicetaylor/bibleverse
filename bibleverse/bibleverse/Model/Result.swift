@@ -27,6 +27,18 @@ struct RandomResult: Codable {
     var text: String
 }
 
+struct Book: Codable {
+    var id: String
+    var bibleId: String
+    var abbreviation: String
+    var name: String
+    var nameLong: String
+}
+
+struct BookResponse: Codable {
+    var data: [Book]
+}
+
 #if DEBUG
 let testData = [
     Result(title: "Numbers 7:16", preview: "one he-goat as a sin offering;"),
