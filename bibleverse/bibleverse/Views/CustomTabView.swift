@@ -50,7 +50,7 @@ struct CustomTabView: View {
                     // custom tab view here
                     Home()
                         .tag("Home")
-                    Bible()
+                    Bible(bookName: "")
                         .tag("Read")
                     Topics() 
                         .tag("Topics")
